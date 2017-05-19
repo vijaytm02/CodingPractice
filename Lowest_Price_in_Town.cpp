@@ -1,58 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
-float price[101];
+double price[205];
 
 int main() {
 	string str;
 	int M,N;
 	float UP,P;
-	char* st;
 	int test=0;
 	while(1){
-		
-		memset(price,-1,sizeof price);
 		getline(cin,str);
 		if(str.length()==0)
 			break;
 		cout<<"Case "<<(++test)<<":"<<endl;
 		sscanf(str.c_str(),"%f %d",&UP,&M);
-		int max1=0;
+		price[0]=0;
+        for(int i = 1; i < 205; i++)    price[i] = 0xfffffff;
+        for(int i = 1; i < 205; i++) {
+            price[i] = min(price[i], price[i-1]+UP);
+        }
 		for(int i=0;i<M;i++){
 			getline(cin,str);
 			sscanf(str.c_str(),"%d %f",&N,&P);
-			price[N]=P;
-			max1=max(max1,N);
+			for(int j=N;j<= 200;j++)
+				price[j]=min(price[j],price[j-N]+P);
 		}
+		for(int j = 200; j >= 0; j--)
+            price[j] = min(price[j], price[j+1]);;
 		getline(cin,str);
-		vector<int> val;
-		char* arr=const_cast<char*>(str.c_str());
-		st=strtok(arr," ");
-		while(st!=NULL){
-			val.push_back(atoi(st));
-			st=strtok(NULL," ");
-		}
-		int k=max1;
-		price[0]=0;
-		price[1]=UP;
-		float ans;
-		for(int i=2;i<=k;i++){
-			ans=0x3f3f3f3f;
-			for(int j=0;j<=i/2;j++){
-				if(price[j]!=-1 && price[i-j]!=-1)
-					ans=min(ans,price[j]+price[i-j]);
-			}
-			price[i]=ans;
-		}
-		for(int i=k;i>=1;i--){
-			int j;
-			for(j=i-1;j>=1 && price[j]>price[i];j--){
-				price[j]=price[i];
-			}
-			i=j+1;
-		}
-		for(int i=0;i<val.size();i++){
-			printf("Buy %d for $%0.2f\n",val[i],price[val[i]]);
-		}
+		stringstream ss(str);
+		int k;
+		while(ss>>k)
+			printf("Buy %d for $%0.2f\n",k,price[k]);
 	}
 	return 0;
 }
