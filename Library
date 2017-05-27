@@ -49,17 +49,4 @@ inline void rdi(int &n) { n=0; char c=gc(); while(c<'0' or c>'9') c=gc(); while(
 inline void rdl(ll &n) { n=0; char c=gc(); while(c<'0' or c>'9') c=gc(); while(c>='0' and c<='9') { n=(n<<3)+(n<<1)+c-'0'; c=gc(); }}
 inline void print(int a) { char s[20]; int i=0; do { s[i++]=a%10+'0'; a/=10; } while(a); i--; while(i>=0) pc(s[i--]); pc('\n'); }
 inline void prlong(ll a) { char s[20]; int i=0; do { s[i++]=a%10+'0'; a/=10; } while(a); i--; while(i>=0) pc(s[i--]); pc('\n'); }
- 
-int main()
-{
-    //ios_base::sync_with_stdio(false); cin.tie(0);
-	sv(){
-	    ll a,b,c,d; rdl(a),rdl(b),rdl(c),rdl(d);
-	    ll p=a-b;
-		if(p<0) p=-p;
-		ll q=__gcd(c,d);
-		p=min(p%q,q-(p%q));
-		prlong(p);
-	}
-	return 0;
-} 
+inline void floydWarshall(vvi& dist,int V) { loop(k,0,V){ loop(i,0,V){ loop(j,0,V){ if (dist[i][k]+ dist[k][j]<dist[i][j]) dist[i][j]=dist[i][k]+dist[k][j]; }}}}
