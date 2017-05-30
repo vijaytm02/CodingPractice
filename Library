@@ -22,6 +22,7 @@
 #define itoc(c)               ((char)(((int)'0')+c))
 #define vi                    vector<int>
 #define vvi                   vector<vi>
+#define vvii                  vector<vector<pair<int,int>>>
 #define pll                   pair<ll,ll>
 #define pii                   pair<int,int>
 #define all(p)                p.begin(),p.end()
