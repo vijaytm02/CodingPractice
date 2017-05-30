@@ -1,8 +1,4 @@
-/* sourav verma   IPG_2013108  ABV IIITM
-         Tasks @ codechef/Hackerrank/Hackerearth */
- 
-#include<bits/stdc++.h>
- 
+#include<bits/stdc++.h> 
 #define ll                    long long int
 #define loop(i,a,b)           for(int i=(int)a;i<(int)b;++i)
 #define rloop(i,a,b)          for(int i=(int)a;i<=(int)b;++i)
@@ -20,6 +16,7 @@
 #define mp                    make_pair
 #define clr(x)                x.clear()
 #define MOD                   1000000007
+#define INF                   0x3f3f3f3f
 #define MAX                   1e9
 #define MIN                   -1e9
 #define itoc(c)               ((char)(((int)'0')+c))
