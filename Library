@@ -49,3 +49,5 @@ inline void print(int a) { char s[20]; int i=0; do { s[i++]=a%10+'0'; a/=10; } w
 inline void prlong(ll a) { char s[20]; int i=0; do { s[i++]=a%10+'0'; a/=10; } while(a); i--; while(i>=0) pc(s[i--]); pc('\n'); }
 inline void floydWarshall(vvi& dist,int V) { loop(k,0,V){ loop(i,0,V){ loop(j,0,V){ if (dist[i][k]+ dist[k][j]<dist[i][j]) dist[i][j]=dist[i][k]+dist[k][j]; }}}}
 inline void dfs(int p,vi& visit,vvi& adj){ visit[p]=true; loop(i,0,adj[p].size()){ if(visit[adj[p][i]]==false) dfs(adj[p][i],visit,adj);}}
+int fast_pow(long long base, long long n,long long M){ if(n==0) return 1; if(n==1) return base;long long halfn=fast_pow(base,n/2,M);if(n%2==0)return ( halfn * halfn ) % M;else return(((halfn*halfn)%M)*base)%M;}
+int findMMI_fermat(int n,int M){return fast_pow(n,M-2,M);}//multiplicative modulo M inverse
