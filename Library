@@ -32,7 +32,6 @@
 #define mini                  INT_MIN
 const int MX=10010896;
 const int lmt=3164;
-const int N=10000001;
 int flag[MX>>6];
 #define ifc(i)                (flag[i>>6]&(1<<((i>>1)&31)))
 #define isc(i)                (flag[i>>6]|=(1<<((i>>1)&31)))
