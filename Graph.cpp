@@ -31,6 +31,7 @@ int Graph::DFS_Util(int u,bool visit[],int disc[],int low[],int parent[],bool ap
         int v=*it;
         if(!visit[v]){
             child++;
+            parent[v]=u;
             DFS_Util(v,visit,disc,low,parent,ap);
             low[u]=min(low[u],low[v]);
             if(parent[u]==-1 && child>1)
