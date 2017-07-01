@@ -26,8 +26,6 @@
 #define pll                   pair<ll,ll>
 #define pii                   pair<int,int>
 #define all(p)                p.begin(),p.end()
-#define max(x,y)              (x>y)?x:y
-#define min(x,y)              (x<y)?x:y
 #define mid(s,e)              (s+(e-s)/2)
 #define mini                  INT_MIN
 const int MX=10010896;
